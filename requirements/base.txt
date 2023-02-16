@@ -3,3 +3,5 @@ uvicorn==0.20.0
 requests==2.28.2
 SQLAlchemy==1.4.46
 python-dotenv==0.21.1
+alembic==1.9.4
+psycopg2-binary==2.9.5
