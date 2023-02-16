@@ -12,6 +12,10 @@ class PersonCitizen(BaseModels, Base):
 
     @validates("person_email")
     def validate_email(self, key, value):
+        """
+        Sencilla validacion de un email, para este caso puedo
+        recomendar una clase mas compleja que valide que de verdad sera un email
+        """
         if "@" not in value:
             raise ValueError("failed email validation")
         return value

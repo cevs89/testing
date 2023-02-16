@@ -1,15 +1,17 @@
-from fastapi import Depends, FastAPI, status
-from sqlalchemy.orm import Session
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
-from n5.core.databases import Base, engine, get_db
+import n5.admin.views.person_citizen as persons
+from n5.core.config import settings
+from n5.core.databases import Base, engine
 
-# from n5.core.models import PersonCitizen
 Base.metadata.create_all(bind=engine)
+# inint FastAPI
+app = FastAPI(title=settings.app_name)
 
-app = FastAPI()
+"""
+include every routers
+"""
+app.include_router(persons.router)
 
-
-@app.get("/", status_code=status.HTTP_201_CREATED)
-async def create_environment(db: Session = Depends(get_db)):
-
-    return {"details": "Success"}
+app.mount("/static", StaticFiles(directory="n5/admin/static/"), name="static")

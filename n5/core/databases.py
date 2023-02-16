@@ -14,7 +14,7 @@ if not settings.DATABASE_URL:
 engine = create_engine(
     settings.DATABASE_URL,
     pool_recycle=3600,
-    connect_args={"connect_timeout": 20, "check_same_thread": False},
+    connect_args={"connect_timeout": 20},
     pool_pre_ping=True,
 )
 

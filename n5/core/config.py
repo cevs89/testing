@@ -7,6 +7,7 @@ load_dotenv()
 class Settings(BaseSettings):
     app_name: str = "N5 Challenge"
     DATABASE_URL: PostgresDsn
+    STATIC = "/static"
 
     class Config:
         env_file = ".env"

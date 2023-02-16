@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mt-4">Create Person</h2>
+<hr>
+<div class="card">
+  <div class="card-header">
+    New Person
+  </div>
+  <div class="card-body">
+    {% if msg %}
+      <p class="alert alert-success">{{msg}}</p>
+    {% endif %}
+    <form method="POST">
+      <div class="form-group">
+        <label >Name</label>
+        <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" required>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
